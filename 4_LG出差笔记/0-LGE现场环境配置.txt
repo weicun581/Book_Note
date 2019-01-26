@@ -15,11 +15,11 @@
 4、code拉完之后配置快捷方式：
    a. vi ~/.bashrc
    b. 新增以下code：
-          alias kdriver='cd ~/k5_code/source/kernel/linux/linux-4.4.3/drivers/rtk_kdriver'
-          alias system='cd ~/k5_code/source/kernel/system'
-          alias kernel='cd ~/k5_code/source/kernel/linux/linux-4.4.3/kernel'
-          alias common='cd ~/k5_code/source/kernel/linux/linux-4.4.3/drivers/rtk_kdriver/common'
-          alias run='cd ~/k5_code/source/kernel/system;sh auto_compile.sh'
+          alias kdriver='cd ~/k5lp/kernel/kernel/linux/linux-4.4.3/drivers/rtk_kdriver'
+          alias system='cd ~/k5lp/kernel/kernel/system'
+          alias kernel='cd ~/k5lp/kernel/kernel/linux/linux-4.4.3/kernel'
+          alias common='cd ~/k5lp/kernel/kernel/linux/linux-4.4.3/drivers/rtk_kdriver/common'
+          alias run='cd ~/k5lp/kernel/kernel/system;sh auto_compile.sh'
    c. 在cd ~/k5_code/source/kernel/system目录下新建编译脚本：auto_compile.sh：
           （1）vi auto_compile.sh
           （2）进入编辑状态，加入以下语句后保存退出。
@@ -35,8 +35,9 @@
    b、执行以下语句：
           (1)vi ~/.netrc
           (2)进入编辑状态修改以下内容：
-                 login  jimmy_wei
-                 password QFIHs8qbcqxc
+			machine swfarmhub.lge.com
+			login  jimmy_wei
+			password QFIHs8qbcqxc
              保存退出。
   
 【常用操作及常见问题解法】
@@ -74,7 +75,7 @@ How to Test :
    b、git config --list //显示git配置信息。
    c、git reset hard   //删除目前所有改动。
    d、git stash  //保存到暂存区。
-   e、
+   e、git branch -a  //显示所有branch---很重要。
 
 
 
@@ -82,4 +83,7 @@ How to Test :
 	a.epk放在根目录。
 	b.swuu ****.epk
 
+4、使用文件夹打开\\10.19.31.154\Root\home\rtk009时无权限进行修改解决方法：
+   添加新的网络映射，添加的时候两个选项都要打勾，然后重新输入用户名和密码（输入的时候要把已经打开的文件夹关闭掉）。
+   添加完成后输入用户名和密码，保存，登录后就可以进行读写了。
 
