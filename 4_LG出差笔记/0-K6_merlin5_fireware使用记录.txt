@@ -1,0 +1,6 @@
+git checkout -b xxx remotes/origin/k6.hal.master
+
+xxx ==> 你自己命名
+
+一共有4個地方要切 
+system， drvier ，rtk_driver ，common

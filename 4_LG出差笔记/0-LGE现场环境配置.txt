@@ -87,3 +87,52 @@ How to Test :
    添加新的网络映射，添加的时候两个选项都要打勾，然后重新输入用户名和密码（输入的时候要把已经打开的文件夹关闭掉）。
    添加完成后输入用户名和密码，保存，登录后就可以进行读写了。
 
+
+
+
+/**************
+[KTASKWBS-10360]icm add new table for ai function
+
+:Release Notes:
+memc performance
+
+:Detailed Notes:
+- Problem : juddger releated
+- RootCause : fw code
+- Solution : modify fw code
+- Author : jimmy_wei
+- Build : ok
+
+:Testing Preformed:
+How to Test :
+1. ATSC 3.0 board
+2. UHD channel (e.g. 7-1 KBS2 UHD)
+(MEMC debug OSD open, b809d5fc[28] on )
+
+**************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
