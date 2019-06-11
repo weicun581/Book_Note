@@ -117,6 +117,21 @@ How to Test :
 
 
 
+    [KTASKWBS-10360][rtice-884][icm] add new function
+
+    :Release Notes:
+            AI releated new function code
+
+    :Detailed Notes:
+    - Problem : add new function
+    - RootCause : none
+    - Solution : add AI releated code
+    - Author : jimmy_wei
+    - Build : ok
+
+    :Testing Preformed:
+    How to Test :
+     compile ok
 
 
 

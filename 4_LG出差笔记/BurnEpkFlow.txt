@@ -1,0 +1,103 @@
+	1) 连上网线：set（电视机）和notebook（笔记本）。
+
+	2) 打开Tftf，设置directory和server interface。
+          （说明：Tftf是一个网口通信协议，172.29.52.133上已经默认打开了tftp，因此可以直接从133上抓epk下来，出差时需要将笔记本设置成服务器）
+ 
+	3) 打开SecureCRT，连接COM口
+
+	4) 按Esc开机，拦住bootcode，依次输入：
+          （说明：进入bootcode方法，重启电视机，同时按Esc键即可）
+
+		i、env print （查看当前环境信息）
+                   --------------------------------------------------------
+                   env set ipaddr 172.29.50.44 （这个是IC的IP）
+		   env set serverip 192.168.0.51（这个是本机的IP address）
+		   env save （save之后，再烧pak的时候就不需要配置IP了）
+
+
+
+env set ethaddr 00:10:20:30:40:57
+env set ipaddr 172.29.51.57
+env set gatewayip 172.29.50.254
+env set netmask 255.255.255.0
+env set serverip 172.29.52.133
+env save
+ping 172.29.52.133
+
+
+
+nset ethaddr 00:10:20:30:40:57
+nset ipaddr 172.29.51.57
+nset gatewayip 172.29.51.254
+nset netmask 255.255.255.0
+nset serverip 172.29.52.133
+env save
+
+
+1.攔住bootcode
+2. 輸入指令nvmdbg->10->ff  (重要, 不然會燒不進去!! )
+3. 輸入指令”swu XXXX.epk” (去dailkybuild找對應版本)
+4. 輸入指令”swu intmicom.K6.tagX.pak”
+(用哪版請看CCC_Version.txt的說明, 並且去FTP抓對應的版本, /upload/intmicom/k6l_master)
+5. AC off/on
+6. 遙控器按下”In Stop” (此時會自動關機)
+7.  power on 攔住bootcode
+8. snapshot off 
+9. reset 
+
+
+
+
+
+
+
+                   --------------------------------------------------------
+		   可用nset快捷设置
+
+		ii、partinfo -> d -> s -> q  (烧录pak文件跳过此步骤)
+
+		iii、nvmdbg -> 10 -> ff      (烧录pak文件跳过此步骤)
+
+	5) 烧epk：
+                -----------------------------
+		swu ***.epk
+			(大文件烧录时请使用swup ***.epk)(大文件是指超过1G文件)
+                -----------------------------
+		相对路径格式：  ../img/002.jpg
+                说明：
+                     a).epk文件存放的位置是：\\172.29.52.133\rssd_share\tftp,在执行上述语句时只需要填写相对路径即可。
+                     b).epk文件之所以存放再：\\172.29.52.133\rssd_share\tftp这个路径，是有133电脑上运行的tftp这个软件设置，tftp是一个网口传输协议。
+                     c)\\172.29.52.133\rssd_share\tftp这个路径下的epk文件是由\\172.22.1.23\mm_data\TVQC_ADB\Daily_Build改文件夹手动sync过去的。
+
+	6) 烧完之后，输入：
+		-----------------------------
+		snapshot remake             (烧录pak文件跳过此步骤)
+		reseten
+		-----------------------------
+		主意：
+			此时先不要连接HDMI信号源接口。
+
+	7) 开机，按 IN STOP（白色遥控器->股票）
+
+	8) 设置color为vivid
+
+
+--------1067-------------
+starfish-dvb-flash-devel-k5lp-gld4tv-clean.hq-1067.squashfs.epk
+intmicom.K5.tag27.pak
+
+
+
+
+
+
+
+Epk 燒錄順序 :
+
+開機攔Esc->Nvmdbg -> 10 -> ff -> set tftp IP -> 
+Burn epk -> 
+snapshot off -> 
+burn micom -> 
+reset IC -> 
+Esc攔realtek，設定panel和bootmode auto
+
