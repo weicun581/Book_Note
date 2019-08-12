@@ -76,7 +76,7 @@ How to Test :
    c、git reset hard   //删除目前所有改动。
    d、git stash  //保存到暂存区。
    e、git branch -a  //显示所有branch---很重要。
-
+   f、git branch -d jimmy_2507  //删除一个branch
 
 
 3、U盘烧epk的方法：
